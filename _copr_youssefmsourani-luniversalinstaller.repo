@@ -1,0 +1,10 @@
+[youssefmsourani-luniversalinstaller]
+name=Copr repo for luniversalinstaller owned by youssefmsourani
+baseurl=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/luniversalinstaller/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://copr-be.cloud.fedoraproject.org/results/youssefmsourani/luniversalinstaller/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
