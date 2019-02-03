@@ -1,16 +1,11 @@
 Name:		blue-flame-os-repos
-Version:	29
+Version:	30
 Release:	1%{?dist}
 Summary:	Repository files for Blue Flame OS
 
 License:	GPL
 URL:		https://github.com/blueflameos/blue-flame-os-repos
-Source0:	_copr:copr.fedorainfracloud.org:youssefmsourani:BlueFlameOS.repo
-Source1:	_copr:copr.fedorainfracloud.org:youssefmsourani:sgvrecord.repo
-Source2:	_copr:copr.fedorainfracloud.org:youssefmsourani:st-trans.repo
-Source3:	_copr_youssefmsourani-arcontrolcenter.repo
-Source4:	_copr_youssefmsourani-luniversalinstaller.repo
-
+Source0:        https://github.com/blueflameos/blue-flame-os-repos/archive/master.zip
 BuildArch:	noarch
 
 # For rpmfusions-nonfree repo keys
@@ -23,16 +18,17 @@ Requires:	fedora-repos
 Repository files for Blue Flame OS.
 
 %prep
+%setup -q -n blue-flame-os-repos-master
 
 %build
 
 %install
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d
-cp %{SOURCE0} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
-cp %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
-cp %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
-cp %{SOURCE3} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
-cp %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+cp "_copr:copr.fedorainfracloud.org:youssefmsourani:BlueFlameOS.repo" $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+cp "_copr:copr.fedorainfracloud.org:youssefmsourani:sgvrecord.repo" $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+cp "_copr:copr.fedorainfracloud.org:youssefmsourani:st-trans.repo" $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+cp "_copr_youssefmsourani-arcontrolcenter.repo" $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
+cp "_copr_youssefmsourani-luniversalinstaller.repo" $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
 
 %files
 %config(noreplace) %{_sysconfdir}/yum.repos.d/_copr:copr.fedorainfracloud.org:youssefmsourani:BlueFlameOS.repo
@@ -42,6 +38,9 @@ cp %{SOURCE4} $RPM_BUILD_ROOT%{_sysconfdir}/yum.repos.d/
 %config(noreplace) %{_sysconfdir}/yum.repos.d/_copr_youssefmsourani-luniversalinstaller.repo
 
 %changelog
+* Sun Feb 03 2019 yucuf Sourani <youssef.m.sourani@gmail.com> - 30-1
+- Version 30
+
 * Fri Nov 16 2018 yucuf Sourani <youssef.m.sourani@gmail.com> - 29-1
 - Initial For BlueFlameOS 29
 
